@@ -163,20 +163,7 @@ function MainPage({ onLogout }) { // Accept onLogout prop
     fetchUserName();
   }, []);
 
-  useEffect(() => {
-    const fetchInterventions = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get('https://regulation.omnidoc.ma:5000/interventions', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        setInterventions(response.data || []);
-      } catch (e) {
-        setInterventions([]);
-      }
-    };
-    fetchInterventions();
-  }, []);
+
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
